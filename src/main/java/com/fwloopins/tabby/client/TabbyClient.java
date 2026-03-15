@@ -42,7 +42,7 @@ public class TabbyClient implements ClientModInitializer {
 				"key.reload",
 				InputUtil.Type.KEYSYM,
 				config.misc.reloadKey,
-				"category.tabby"
+				KeyBinding.Category.MISC
 		));
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {

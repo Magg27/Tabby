@@ -69,7 +69,7 @@ public class PlayerListHudMixin {
 				PlayerListEntry playerListEntry = client.getNetworkHandler().getPlayerListEntry(text);
 
 				if (playerListEntry != null) {
-					uuid = playerListEntry.getProfile().getId().toString();
+					uuid = playerListEntry.getProfile().id().toString();
 				} else {
 					throw new NullPointerException();
 				}
