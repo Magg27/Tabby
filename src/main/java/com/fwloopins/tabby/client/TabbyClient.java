@@ -1,7 +1,6 @@
 package com.fwloopins.tabby.client;
 
 import com.fwloopins.tabby.client.config.TabbyConfig;
-import com.fwloopins.tabby.client.config.DataManager;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
@@ -18,9 +17,6 @@ public class TabbyClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		AutoConfig.register(TabbyConfig.class, GsonConfigSerializer::new);
-
-		DataManager.initFiles();
-		DataManager.cacheJson();
 
 		reload();
 
@@ -44,12 +40,5 @@ public class TabbyClient implements ClientModInitializer {
 				config.misc.reloadKey,
 				KeyBinding.Category.MISC
 		));
-
-		ClientTickEvents.END_CLIENT_TICK.register(client -> {
-			while (reloadBinding.wasPressed()) {
-				DataManager.initFiles();
-				DataManager.cacheJson();
-			}
-		});
 	}
 }

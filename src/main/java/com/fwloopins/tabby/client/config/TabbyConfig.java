@@ -28,8 +28,6 @@ public class TabbyConfig implements ConfigData {
     }
 
     public static class Misc {
-        @ConfigEntry.Gui.Tooltip(count = 2)
-        public boolean customColours = false;
         @ConfigEntry.Gui.Tooltip
         public String customHeader = "";
         @ConfigEntry.Gui.Tooltip
